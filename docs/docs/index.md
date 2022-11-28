@@ -1,17 +1,23 @@
-# Welcome to MkDocs
+# Welcome to Zichao and Yuheng's project
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## Basic idea
 
-## Project layout
+Electromagnetic wave's speed and amplitude will decrease to different level when it travel in different material. We may use this property the identificate different liquid solution.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+WiFi signal is one of the most common electromagnetic wave in our lives. It's easy to get some off-the-shelf WiFi signal generater. In this project, we use ESP32 which is about $10 each.
+
+## Relate work
+
+RFID identify drinks
+
+<https://dl.acm.org/doi/pdf/10.1145/3131348.3131352>
+
+Antenna identify liquid
+
+https://dl.acm.org/doi/pdf/10.1145/3210240.3210345
+
+[RFID identify drinks]: https://dl.acm.org/doi/pdf/10.1145/3131348.3131352	"RFID identify drinks"
+[Antenna identify liquid]: https://dl.acm.org/doi/pdf/10.1145/3210240.3210345	"Antenna identify liquid"
+
