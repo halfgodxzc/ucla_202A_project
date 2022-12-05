@@ -121,12 +121,12 @@
 <h4 id="this-experiment-is-meant-to-measure-the-phase-and-rssi-baseline-of-air-and-we-only-focus-on-subcarrier-34-the-result-is-supposed-stable-around-a-certain-value-the-result-however-is-waving-from-15-to-15-which-is-pi-2-to-pi2-the-raw-phase-information-therefore-is-useless-for-liquid-indentification">This experiment is meant to measure the phase and rssi baseline of AIR. And we only focus on subcarrier 34. The result is supposed stable around a certain value. The result, however, is waving from 1.5 to -1.5 which is $$ \pi /2$$ to $-\pi/2$. The raw phase information, therefore, is useless for liquid indentification.</h4>
 <h2 id="phase-denoise">Phase denoise</h2>
 <h4 id="the-random-phase-problem-is-due-to-the-random-noise-and-unsynchronized-timing-between-transmitter-and-receiver-people-use-a-equation-to-denote-the-csi-phase-noise">The random phase problem is due to the random noise and unsynchronized timing between transmitter and receiver. People use a equation to denote the CSI phase noise.</h4>
-<h5 id="rawcsirealcsi2pifracm_indeltatbetaz">RawCSI=RealCSI+$2\pi$$\frac{m_i}{N}$$\Delta$t+$\beta$+Z</h5>
+<p><img alt="" src="../../fig/formal1.png" /></p>
 <h4 id="in-this-model-the-deltat-is-the-time-lag-between-transmitter-and-receiver-the-beta-is-the-unknown-phase-offset-m_i-is-the-subcarrier-indices-for-i1-to-56-and-the-n-is-the-fft-size-from-ieee-80211n-specification-in-our-project-all-the-data-is-discrete-so-n64-its-impossible-to-know-the-deltat-and-beta-but-we-can-implement-a-linear-transformation-on-the-raw-phase-to-remove-the-terms-of-deltat-and-beta">In this model, the $\Delta$t is the time lag between transmitter and receiver. The  $\beta$ is the unknown phase offset, $m_i$ is the subcarrier indices for i=1 to 56, and the  N is the FFT size from IEEE 802.11n specification. In our project, all the data is discrete, so N=64. It's impossible to know the $\Delta$t and $\beta$, but we can implement a linear transformation on the raw phase to remove the terms of $\Delta$t and $\beta$.</h4>
 <h4 id="for-a-single-measurement-the-deltat-and-beta-is-a-constant-therefore-we-can-get-the-slope-of-phase-and-the-offset-across-the-entire-frequency-band-to-remove-them">For a single measurement the $\Delta$t and $\beta$ is a constant. Therefore, we can get the slope of phase and the offset across the entire frequency band to remove them.</h4>
-<p>​                       k=$\frac{RawCSI_{56}-RawCSI_{1}}{m_{56}-m_{1}}$,         b=$\frac{1}{56}$$\sum_{x=1}^{56}RawCSI_i$</p>
+<p><img alt="" src="../../fig/formal2.png" /></p>
 <h4 id="the-calibrated-phase-is">The calibrated phase is:</h4>
-<h5 id="denoisecsi_irawcsi_i-km_i-b">$DenoiseCSI_i$=$RawCSI_i$-$km_i$-$b$</h5>
+<p><img alt="" src="../../fig/formal3.png" /></p>
 <h4 id="after-implement-this-algorithm-we-can-have-a-useable-csi-phase-information">After implement this algorithm, we can have a useable CSI phase information.</h4>
 <p><img alt="denoise" src="../../fig/compare.png" /></p></div>
         </div>
