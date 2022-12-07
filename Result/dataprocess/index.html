@@ -136,37 +136,22 @@
 <h2 id="parameterizing">Parameterizing</h2>
 <p>Our Liquid Identifier is based on the fact that when signal travels through different materials, its phase and received signal strangth (RSS) change accordingly. In another word, the signal phase and RSS changes can help identify different materials when parameterized properly.</p>
 <p><strong>Phase Changes</strong></p>
-<p>The wavelength of signal changes when penetrating different maetrials due to obsortion. However, the frequency will not change according to <em>K Cheng David (1983)</em>. We can expect a phase change when different materials are placed between the transmitter and receiver. In our experiment set-up, we first measure the phase of air, and then measure the phase when target material is in place. The phases are denoted as $\phi_{air}$ and $\phi_{tar}$, respectively. We also introduce $L$ as the distance along the direct path from transmitter to receiver. The phase change $\Delta \phi = \phi_{tar} - \phi_{air}$ will be given as follows, where $\beta = \frac{2\pi}{\lambda}$ is defined as the signal's phase constant in the material.
-$$
-\Delta \phi = [2D(\beta_{tar} - \beta_{air})] \mod 2\pi
-$$</p>
+<p>The wavelength of signal changes when penetrating different maetrials due to obsortion. However, the frequency will not change according to <em>K Cheng David (1983)</em>. We can expect a phase change when different materials are placed between the transmitter and receiver. In our experiment set-up, we first measure the phase of air, and then measure the phase when target material is in place. The phases are denoted as $\phi_{air}$ and $\phi_{tar}$, respectively. We also introduce $L$ as the distance along the direct path from transmitter to receiver. The phase change $\Delta \phi = \phi_{tar} - \phi_{air}$ will be given as follows, where $\beta = \frac{2\pi}{\lambda}$ is defined as the signal's phase constant in the material.</p>
+<p><img alt="" src="../../fig/resultfomual.png" /></p>
 <p><strong>RSS Changes</strong></p>
-<p>We can also expect signal strangth changes when we  place different material between the tansmitter and receiver, specifically an amplitude attenuation. Similarly, we denote $R_{air}$ and $R_{tar}$ as the RSS of air and target material, respectively. The change can be expressed as $ \Delta R = R_{tar} - R_{air}$. Given $\alpha_{air}$ and $\alpha_{tar}$ as the attenuation constant of the air and the target material, correspondingly, we express the RSS change as foloows.
-$$
-\Delta R = 20\log [e^{[-2D(\alpha_{tar} - \alpha_{air})]}]
-$$</p>
+<p>We can also expect signal strangth changes when we  place different material between the tansmitter and receiver, specifically an amplitude attenuation. Similarly, we denote $R_{air}$ and $R_{tar}$ as the RSS of air and target material, respectively. The change can be expressed as $ \Delta R = R_{tar} - R_{air}$. Given $\alpha_{air}$ and $\alpha_{tar}$ as the attenuation constant of the air and the target material, correspondingly, we express the RSS change as follows.</p>
+<p><img alt="" src="../../fig/resultfomual2.png" /></p>
 <p><strong>Feature Extraction</strong></p>
-<p>However, the aforementioned changes are related to the propagation distance $D$, and it will not be robust for the system if we are required to constantly measeure this value everytime. We intend to find a parameter that eliminates the effect of $D$ and use tthe new feature to identify our material. First, we try to extract the information that are not related to $D$ from the expression of $\Delta \phi$ and $\Delta R$, where $\zeta=0$ for relatively small objects.
-$$
-2D = \frac{\Delta \phi + 2\zeta\pi}{\beta_{tar}-\beta_{air}}=\frac{ln10^{\Delta R/20}}{\alpha_{air} - \alpha_{tar}}.
-$$</p>
-<p>Then we can define a parameter $\Omega$ to represent our feature.
-$$
-\Omega = \frac{\alpha_{air} - \alpha_{tar}}{\beta_{tar} - \beta_{air}}
-$$</p>
+<p>However, the aforementioned changes are related to the propagation distance $D$, and it will not be robust for the system if we are required to constantly measeure this value everytime. We intend to find a parameter that eliminates the effect of $D$ and use tthe new feature to identify our material. First, we try to extract the information that are not related to $D$ from the expression of $\Delta \phi$ and $\Delta R$, where $\zeta=0$ for relatively small objects.</p>
+<p><img alt="" src="../../fig/resultfomual3.png" /></p>
+<p>Then we can define a parameter $\Omega$ to represent our feature.</p>
+<p><img alt="" src="../../fig/resultfomual4.png" /></p>
 <h2 id="denoising">Denoising</h2>
 <p>The information we received from the system has several configuration that is useful to our feature extraction. The rssi column contains the received signal strength of each read, and the CSI column contains channel state information, which can be extracted as phase information.</p>
 <p>We denote the subcarrier $i$'s measured phase as $\angle\hat{CSI}<em>{i}$. We can express it using the following equation, where $\angle CSI</em>{i}$ is the real phase, $Z$ is the measurement noise, $\Delta t$ is the time lag, $\beta$ is the some offsets, $m_i$ is the subcarrier index and $N$ is the Fast Fourier Transformation (FFT) size.</p>
-<p>$$
-\angle\hat{CSI}<em>{i} = \angle CSI</em>{i} + 2\pi\frac{m_i}{N}\Delta t+\beta+Z
-$$</p>
-<p>The calibrated phase can be expressed as
-$$
-\angle\tilde{CSI}<em>{i}=\angle\hat{CSI}</em>{i}-km_i-b
-$$ where $k$ and $b$ are defined as follows.
-$$
-k = \frac{\angle\hat{CSI}<em>{54}-\angle\hat{CSI}</em>{1}}{m_{54}-m_1}, b = \frac{1}{54}\sum_{i=1}^{54}\angle\tilde{CSI}_{i}
-$$.</p>
+<p><img alt="" src="../../fig/resultfomual6.png" /></p>
+<p>The calibrated phase can be expressed as</p>
+<p><img alt="" src="../../fig/resultfomual7.png" /></p>
 <p>After denoising, the phase information can be used properly</p></div>
         </div>
 
